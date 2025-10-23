@@ -16,8 +16,8 @@ const WEB_APP_URL = `https://script.google.com/macros/s/AKfycbyir3_MqkvcQkdu62uM
 // --- Product Data ---
 const PRODUCTS = [
   { id: 1, title: "Bairi Honey 1kg", price: 3400,  orgprice:4400, desc: "Pure raw honey, single-origin. Traditional flavor.", img: "honey_1.png" },
-  { id: 2, title: "Bairi Honey 500g", price: 1800, orgprice:2300, desc: "Half-kilo jar of rich, floral honey.", img: "honey_2.png" },
-  { id: 3, title: "Honey Gift Pack", price: 5200,  orgprice:6500, desc: "Gift pack — 1kg + 500g attractively boxed.", img: "honey_3.png" },
+  { id: 2, title: "Bairi Honey 500g", price: 1700, orgprice:2200, desc: "Half-kilo jar of rich, floral honey.", img: "honey_2.png" },
+  { id: 3, title: "Honey Gift Pack", price: 5100,  orgprice:6600, desc: "Gift pack — 1kg + 500g attractively boxed.", img: "honey_3.png" },
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");

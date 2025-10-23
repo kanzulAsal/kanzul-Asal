@@ -27,9 +27,9 @@ body{
     color:var(--accent);
     text-decoration:none;
     font-size:1.25rem}
-.site-header .brand img{
+.site-header .brand img {
  width: 30%;
-}  
+}
 .site-header nav ul li{
     list-style: none;
     display: inline;
@@ -81,6 +81,9 @@ body{
     margin:12px auto 6px;
     max-width:1100px;
     padding:8px
+}
+.img-banner-mobile{
+    display: none;
 }
 .card{
     background:white;
@@ -241,6 +244,7 @@ footer{
    width: 100%;
    
 }
+
 .back-to-shop{
     display:inline-block;
     padding:10px 16px;
@@ -336,6 +340,7 @@ footer{
   border-radius: 8px;
 }
 
+
 /* Mobile Optimization */
 @media (max-width: 768px) {
   .products, 
@@ -344,10 +349,32 @@ footer{
     padding: 10px;
     gap: 10px;
   }
-  
-  .card img {
-    height: 180px;
+  .card{
+    height: 200px;
+    width: 170px;
+     margin-bottom: 280px; 
+    font-size: 14px;
+    margin-top: 30px;
+    
   }
+  .card img {
+    height: 100px;
+  }
+  
+.card h3{
+    margin:10px 0 6px
+}
+.card p{
+    font-size:0.95rem;
+    color:#555
+}
+.card .Price {
+     font-size: 14px;
+}
+
+.view{
+    display: none;
+}     
   .hero p{
    font-size:0.7rem; }
  .site-header {
@@ -363,8 +390,8 @@ footer{
     text-align: right;
      
 }
-   .site-header .brand img{
- width: 50%;
+  .site-header .brand img {
+ width: 100%;
 }
 #category-filter{
     display: none;
@@ -372,17 +399,36 @@ footer{
 #search-input{
     display: none;
 } 
-#link-home{
+/* #link-home{
     display: none;
-} 
+}  */
+footer{
+    margin-top: 80px;
 }
+}
+/* .img-banner{
+    display: none;
+   
+}
+.img-banner-mobile{
+    display: block;
+    width: 100%;
+} */
+
 
 @media (max-width: 480px) {
   .products,
   .products-grid {
-    grid-template-columns: 1fr; /* single column */
-    padding: 8px;
+    grid-template-columns: 1fr 1fr; /* single column */
+    padding: 10px;
     gap: 8px;
+  }
+  .card{
+    height: 150px;
+    width: 150px;
+     margin-bottom: 380px; 
+    font-size: 14px;
+
   }
   .card {
     padding: 10px;
@@ -390,5 +436,21 @@ footer{
   .card img {
     height: 160px;
   }
+  footer{
+    margin-top: 100px;
+}
+.img-banner{
+    display: none;
+   
+}
+.img-banner-mobile{
+    display: block;
+    width: 100%;
+}
+.brand img{
+    width: 780px;
+     width: 780px;
+
+}
 }  
 
