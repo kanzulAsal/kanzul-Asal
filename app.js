@@ -15,9 +15,9 @@ const WEB_APP_URL = `https://script.google.com/macros/s/AKfycbyir3_MqkvcQkdu62uM
 
 // --- Product Data ---
 const PRODUCTS = [
-  { id: 1, title: "Bairi Honey 1kg", price: 3400,  orgprice:4400, desc: "Pure raw honey, single-origin. Traditional flavor.", img: "honey_1.png" },
-  { id: 2, title: "Bairi Honey 500g", price: 1700, orgprice:2200, desc: "Half-kilo jar of rich, floral honey.", img: "honey_2.png" },
-  { id: 3, title: "Honey Gift Pack", price: 5100,  orgprice:6600, desc: "Gift pack — 1kg + 500g attractively boxed.", img: "honey_3.png" },
+  { id: 1, title: "Bairi Honey 1kg", price: 3400,  orgprice:4400, desc: "Acquired by honey farming in Sidr(Bairi) forest, Free from Chemicals, With money-pack guaranty in case of any adulteration found.", img: "honey_1.png" },
+  { id: 2, title: "Bairi Honey 500g", price: 1700, orgprice:2200, desc: "Acquired by honey farming in Sidr(Bairi) forest, Free from Chemicals, With money-pack guaranty in case of any adulteration found.", img: "honey_2.png" },
+  { id: 3, title: "Honey Gift Pack", price: 5100,  orgprice:6600, desc: "Acquired by honey farming in Sidr(Bairi) forest, Free from Chemicals, With money-pack guaranty in case of any adulteration found.", img: "honey_3.png" },
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -47,13 +47,14 @@ function renderProducts() {
     const card = document.createElement("div");
     card.className = "card";
 
-    const img = document.createElement("img");
+    const img = document.createElement("img");img.className = "image";
     img.src = p.img; img.alt = p.title;
-    img.style.width = "100%"; img.style.height = "220px"; img.style.objectFit = "cover"; img.style.borderRadius = "8px";
-
+    img.style.width = "100%"; img.style.height = "100%"; img.style.objectFit = "cover"; img.style.borderRadius = "8px";
+     img.addEventListener("click", () =>  location.href = `view.html?id=${p.id}`);
+    
     card.innerHTML =`<div class="Disc-rate"><span class="disc-rate">${discountPercent(p.price,p.orgprice)}%</span></div>`
     const h3 = document.createElement("h3"); h3.textContent = p.title;
-    const desc = document.createElement("p"); desc.textContent = p.desc;
+    // const desc = document.createElement("p"); desc.textContent = p.desc;
     const price = document.createElement("div"); price.className = "price"; price.textContent = formatPKR(p.price) + " PKR" ;
     const orgprice = price.innerHTML= `<div class="Price"> ${formatPKR(p.price)} PKR</div> <div class="org-price">  ${formatPKR(p.orgprice)} PKR </div>`
 
@@ -63,7 +64,10 @@ function renderProducts() {
     const view = document.createElement("button"); view.className = "btn view"; view.dataset.id = p.id; view.textContent = "View";
     view.addEventListener("click", () => openModal(p.id));
     // Add to Cart
-    const add = document.createElement("button"); add.className = "btn add"; add.textContent = "Add to Cart";
+    const add = document.createElement("button"); add.className = "btn add";
+    add.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+</svg>`
     add.addEventListener("click", () => { addToCart(p.id, 1); });
     // Buy Now
     const buy = document.createElement("button"); buy.className = "btn buy"; buy.textContent = "Buy Now";
@@ -71,7 +75,7 @@ function renderProducts() {
 
     actions.appendChild(view); actions.appendChild(add); actions.appendChild(buy);
 
-    card.appendChild(img); card.appendChild(h3); card.appendChild(desc); card.appendChild(price); card.appendChild(actions);
+    card.appendChild(img); card.appendChild(h3); card.appendChild(price); card.appendChild(actions);
     grid.appendChild(card);
   });
 
@@ -261,18 +265,21 @@ function afterOrderPlaced(order, sentToSheet) {
     const grid = document.createElement('div'); grid.className='products-grid fade-in';
     filtered.forEach(p=>{
       const card = document.createElement('div'); card.className='card';
-      card.innerHTML =`<div class="Disc-rate"><span class="disc-rate">${discountPercent(p.price,p.orgprice)}%</span></div>`
       const img = document.createElement('img'); img.src=p.img; img.alt=p.title; img.style.width='100%'; img.style.height='220px'; img.style.objectFit='cover'; img.style.borderRadius='8px';
+      img.innerHTML =`<div class="Disc-rate"><span class="disc-rate">${discountPercent(p.price,p.orgprice)}%</span></div>`
       const h3 = document.createElement('h3'); h3.textContent=p.title;
-      const desc = document.createElement('p'); desc.textContent=p.desc;
-      const price = document.createElement('div'); price.className='Price'; price.textContent = formatPKR(p.price) + ' PKR';
+      const price = document.createElement('div'); price.className='price'; price.textContent = formatPKR(p.price) + ' PKR';
       const orgprice = price.innerHTML= `<div class="Price"> ${formatPKR(p.price)} PKR</div> <div class="org-price">  ${formatPKR(p.orgprice)} PKR </div>`
       const actions = document.createElement('div'); actions.className='actions';
       const view = document.createElement('button'); view.className='btn view'; view.textContent='View'; view.addEventListener('click', ()=> openModal(p.id));
-      const add = document.createElement('button'); add.className='btn add'; add.textContent='Add to Cart'; add.addEventListener('click', ()=> addToCart(p.id,1));
+      const add = document.createElement('button'); add.className='btn add'; 
+       add.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+</svg>`
+      add.addEventListener('click', ()=> addToCart(p.id,1));
       const buy = document.createElement('button'); buy.className='btn buy'; buy.textContent='Buy Now'; buy.addEventListener('click', ()=> { addToCart(p.id,1); location.hash='#checkout'; document.getElementById('checkout')?.scrollIntoView({behavior:'smooth'}); });
       actions.appendChild(view); actions.appendChild(add); actions.appendChild(buy);
-      card.appendChild(img); card.appendChild(h3); card.appendChild(desc); card.appendChild(price); card.appendChild(actions);
+      card.appendChild(img); card.appendChild(h3); card.appendChild(price); card.appendChild(actions);
       grid.appendChild(card);
     });
     const controls = document.getElementById('product-controls');
@@ -309,6 +316,7 @@ function showSectionFromHash() {
     hero.classList.add("hidden");
     if (banner) banner.style.display = "none";
   } 
+  
   else {
     // Home (default) — hero + banner + products
     hero.classList.remove("hidden");

@@ -1,4 +1,10 @@
 
+/* montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
 
 :root{
     --accent:#000000;
@@ -33,7 +39,17 @@ body{
 .site-header nav ul li{
     list-style: none;
     display: inline;
-}  
+    
+} 
+.site-header nav ul li svg {
+  width: 20px;
+  height: 20px;
+  /* fill: #000; ya #fff agar dark background hai */
+  transition: 0.3s ease;
+}
+.site-header nav ul li svg:hover{
+    transform:translateY(-2px);
+}
 .site-header nav a{
     margin-left:12px;
     text-decoration:none;
@@ -71,10 +87,10 @@ body{
     gap:18px;
     padding:20px;
     max-width:1100px;
-    margin:0 auto
+    margin:0 auto               /**/
 }
 .product-controls{
-    display:flex;
+    display:flex;  /*flex*/
     gap:10px;
     align-items:center;
     justify-content:center;
@@ -86,9 +102,9 @@ body{
     display: none;
 }
 .card{
-    background:white;
+    /* background:white; */
     padding:14px;border-radius:10px;
-    box-shadow:0 4px 18px rgba(0,0,0,0.06);
+    /* box-shadow:0 4px 18px rgba(0,0,0,0.06); */
     text-align:center;
     transition:transform .18s ease, box-shadow .18s ease
 }
@@ -99,34 +115,44 @@ body{
  }
 .card img{
     width:100%;
-    height:220px;
-    object-fit:cover;
+    height:100%;
+    /* object-fit:cover; */
     border-radius:8px
 }
 .card h3{
-    margin:10px 0 6px
+    margin:10px 0 6px;
+    font-family: "Funnel Display", sans-serif;
+    padding: auto;
+    color: #272626;
 }
 .card p{
     font-size:0.95rem;
-    color:#555
+    color:#555;
 }
 .card .Price {
-     font-size: 18px;
-     font-weight:700;
-     color:#8a4f00;
-     margin:8px 0 3px 0
+     font-size: 16px;
+     font-weight:400;
+     color:#c92525;
+     margin:8px 4px
+}
+.price{
+    display: flex;
+    font-family:  "Zalando Sans", sans-serif;
+    margin: 9px;
 }
 .org-price{
-        font-weight:700;color:#dd1010;
+        font-size: 14px;
+        font-weight:400;
+        color:#504b4b;
         text-align: right;
-        margin:0px 30px 18px 0px;
+        margin:10px 4px;
         text-decoration: line-through;
 }
 .disc-rate{
     display: inline-block;           
     background-color: #FF5733;      
     color: #ffffff;                 
-    padding: 0.6em 0.6em ;            
+    padding: 1.2em 0.6em ;            
     border-radius: 50%;            
     font-weight: bold;              
     text-align: center;              
@@ -137,15 +163,17 @@ body{
     padding:0.5em 0.5em ;
     z-index: 99;
     text-align: right;
-}       
+}  
+     
 .card .actions{
     display:flex;
     justify-content:center;
     gap:8px
-}    
-.hidden{
-    display:none
+}  
+.hidden{ 
+    display: none !important; 
 }
+
 .modal{
     position:fixed;
     inset:0;
@@ -187,6 +215,9 @@ body{
     display:grid;
     grid-template-columns:1fr 360px;
     gap:20px
+}
+.Msg{
+    color: #000000;
 }
 .cart-list{
     background:#fff;
@@ -236,8 +267,43 @@ body{
 footer{
     padding:12px;
     text-align:center;
-    color:#666
+    color:#666;
 }
+#link-checkout{
+    position: relative;
+  display: inline-block;
+}
+#cart-count{
+ position: absolute;
+  top: -8px;
+  right: -12px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+#link-checkout{
+    position: relative;
+  display: inline-block;
+}
+#cart-count{
+ position: absolute;
+  top: -8px;
+  right: -12px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+.view{
+    display: none;
+}
+
+
 @media (max-width:800px){.checkout-grid{grid-template-columns:1fr}}
 .img-banner{
    
@@ -281,7 +347,7 @@ footer{
     gap:18px;
     padding:20px;
     max-width:1100px;
-    margin:0 auto
+    margin:0 auto           /**/
 }
 .fade-in{
     animation:fadeIn .28s ease both
@@ -308,21 +374,27 @@ footer{
 /* === Responsive Fix for Products Section === */
  .products, 
 .products-grid {
-  /* display: grid; */
+  display: flex;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
   padding: 20px;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 20px 30px;
   box-sizing: border-box;
+  text-align: left;
+  justify-content: center;
+}
+.products h1{
+    text-align: left;
+    margin: 0;
 }
 
 /* Make sure the product cards shrink properly */
 .card {
-  background: white;
+  /* background: white; */
+  /* box-shadow: 0 4px 18px rgba(0,0,0,0.06); */
   padding: 14px;
   border-radius: 10px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
   text-align: center;
   transition: transform .18s ease, box-shadow .18s ease;
 }
@@ -340,8 +412,8 @@ footer{
   border-radius: 8px;
 }
 
-
 /* Mobile Optimization */
+
 @media (max-width: 768px) {
   .products, 
   .products-grid {
@@ -414,9 +486,16 @@ footer{
     display: block;
     width: 100%;
 } */
-
+nav li span{
+    padding: 0;
+    margin: 0;
+}
 
 @media (max-width: 480px) {
+.products, 
+.products-grid {
+    display: grid;
+}
   .products,
   .products-grid {
     grid-template-columns: 1fr 1fr; /* single column */
@@ -425,8 +504,8 @@ footer{
   }
   .card{
     height: 150px;
-    width: 150px;
-     margin-bottom: 380px; 
+    width: 100px;
+     margin-bottom: 280px; 
     font-size: 14px;
 
   }
@@ -451,6 +530,17 @@ footer{
     width: 780px;
      width: 780px;
 
+}
+.price{
+    display: inline-block;
+    
+}
+.org-price{
+    margin: 3px auto;
+}
+.products h1{
+    font-size: 20px;
+    margin-left:60px ;
 }
 }  
 
