@@ -15,6 +15,7 @@ body{
     height:23% ;
     margin: 44px 0 0 0px;
     justify-self: center;
+    border-radius: 6px;
    
  }
  .detail
@@ -154,6 +155,7 @@ body{
 .add-to-cart:hover {
   background-color: #0ab396;
 }
+
 
 
 @media (max-width: 768px) {

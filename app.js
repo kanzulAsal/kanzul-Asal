@@ -298,12 +298,13 @@ function showSectionFromHash() {
   const products = document.getElementById("products");
   const checkout = document.getElementById("checkout");
   const orderConfirm = document.getElementById("order-confirm");
+  
 
   // Hide all first
-  [hero, products, checkout, orderConfirm].forEach(sec => sec && sec.classList.add("hidden"));
+  [hero, products, checkout, orderConfirm,].forEach(sec => sec && sec.classList.add("hidden"));
 
   if (h === "#checkout") {
-    checkout.classList.remove("hidden");
+    checkout.classList.remove("hidden");  
     if (banner) banner.style.display = "none";
   } 
   else if (h === "#order-confirm") {
