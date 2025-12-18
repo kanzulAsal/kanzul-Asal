@@ -253,7 +253,7 @@ body{
     border-radius:8px
 }
 .free{ 
-    margin-left: 68%; 
+   
     color: green;
 }
 
@@ -262,9 +262,7 @@ body{
     font-weight:700; 
 }
 
-.finalpkr{
-    margin-left: 71%;
-}
+
 .cart-delivery{
    margin-top:10px;
     font-weight:700;
@@ -592,8 +590,6 @@ nav li span{
     transform: scale(1.1);
     transition: 0.2s;
 }
-.finalpkr{
-    margin-left: 65%;
-}
+
 }  
 
