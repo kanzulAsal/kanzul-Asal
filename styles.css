@@ -242,19 +242,33 @@ body{
 }
 .order-form label{
     display:block;
-    margin-bottom:8px
+    margin-bottom:8px;
+    font-weight: 600;
+    
 }
 .order-form input,.order-form textarea,.order-form select{
-    width:100%;
-    padding:8px;
+    width:90%;
+    padding:12px;
     border:1px solid #ddd;
-    border-radius:6px
+    border-radius:8px
+}
+.free{ 
+    margin-left: 70%; 
+    color: green;
 }
 
 .cart-total{
     margin-top:10px;
-    font-weight:700
+    font-weight:700; 
 }
+
+.finalpkr{
+    margin-left: 70%;
+}
+.cart-delivery{
+   margin-top:10px;
+    font-weight:700;
+} 
  
 #order-confirm{
     max-width:700px;
@@ -577,6 +591,9 @@ nav li span{
 .whatsapp_float img:hover {
     transform: scale(1.1);
     transition: 0.2s;
+}
+.finalpkr{
+    margin-left: 65%;
 }
 }  
 

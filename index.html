@@ -8,23 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '831918859748161');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=831918859748161&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
   <section class="hero">
@@ -79,22 +62,20 @@ src="https://www.facebook.com/tr?id=831918859748161&ev=PageView&noscript=1"
   </section>
 
   <section id="checkout" class="checkout hidden">
-    <script>
-fbq('track', 'Purchase');
-</script>
-
     <h2>Checkout</h2>
     <div class="checkout-grid">
       <div class="cart-list">
         <h3>Your Cart</h3>
         <div id="cart-items"></div>
-        <div class="cart-total">Total: <span id="cart-total">0</span> PKR</div>
+        <div class="cart-total">Total: <span class="finalpkr" id="cart-total">0 </span><span>PKR</span> </div>
+        <div class="cart-delivery">Delivery: <span class="free">FREE</span></div>
+        
       </div>
       <form id="order-form" class="order-form">
         <h3>Shipping & Payment</h3>
-        <label>Full name<input type="text" name="name" required ></label>
-        <label>Phone<input type="tel" name="phone" required></label>
-        <label>Address<textarea name="address" required placeholder="Enter the full Address..."></textarea></label>
+        <label>Full name<input type="text" name="name" required placeholder="Your name"></label>
+        <label>Phone<input type="tel" name="phone" required placeholder="Your phone number"></label>
+        <label>Address<textarea name="address" required placeholder="Full delivery address"></textarea></label>
         <label>Location
           
           <select name="Location" id="Location" required>
